@@ -8,6 +8,8 @@ git clone https://github.com/sproutmation/windows-setup.git "$env:USERPROFILE\wi
 Set-Location "$env:USERPROFILE\windows-setup"
 Set-ExecutionPolicy Bypass -Scope Process -Force
 powershell.exe -File .\setup-windows-settings.ps1
+
+regedit.exe /s .\windows-registry-settings.reg
 ```
 
 
@@ -24,4 +26,6 @@ git clone https://github.com/sproutmation/windows-setup.git "$env:USERPROFILE\wi
 Set-Location "$env:USERPROFILE\windows-setup" 
 Set-ExecutionPolicy Bypass -Scope Process -Force
 powershell.exe -File .\setup-windows-settings.ps1
+
+regedit.exe /s .\windows-registry-settings.reg
 ```
