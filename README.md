@@ -14,11 +14,14 @@ powershell.exe -File .\setup-windows-settings.ps1
 ## For Windows without git installed
 
 ```powershell
-Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
-choco install git -y
+winget install --id Git.Git -e --source winget
+# Dynamically add Git to PATH without restarting
+$gitPath = "C:\Program Files\Git\bin"
+$env:Path += ";$gitPath"
+[System.Environment]::SetEnvironmentVariable("Path", $env:Path + ";$gitPath", [System.EnvironmentVariableTarget]::Machine)
 
 git clone https://github.com/sproutmation/windows-setup.git "$env:USERPROFILE\windows-setup"
-Set-Location "$env:USERPROFILE\windows-setup"
+Set-Location "$env:USERPROFILE\windows-setup" 
 Set-ExecutionPolicy Bypass -Scope Process -Force
 powershell.exe -File .\setup-windows-settings.ps1
 ```
