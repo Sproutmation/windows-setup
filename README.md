@@ -9,7 +9,7 @@ Set-Location "$env:USERPROFILE\windows-setup"
 Set-ExecutionPolicy Bypass -Scope Process -Force
 powershell.exe -File .\setup-windows-settings.ps1
 
-regedit.exe /s .\windows-registry-settings.reg
+regedit.exe /s .\start_settings_registry.reg
 ```
 
 
@@ -27,5 +27,5 @@ Set-Location "$env:USERPROFILE\windows-setup"
 Set-ExecutionPolicy Bypass -Scope Process -Force
 powershell.exe -File .\setup-windows-settings.ps1
 
-regedit.exe /s .\windows-registry-settings.reg
+regedit.exe /s .\start_settings_registry.reg
 ```

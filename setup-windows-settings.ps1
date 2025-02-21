@@ -52,6 +52,21 @@ New-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\SearchSe
 New-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\SearchSettings" -Name "SafeSearchMode" -Value 0 -PropertyType DWord -Force
 New-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\SearchSettings" -Name "HistoryViewEnabled" -Value 0 -PropertyType DWord -Force
 
+# Disable OneDrive Auto-Start
+Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Run" -Name "OneDrive" -Value "" -Force
+
+# Disable Microsoft Teams Auto-Start
+Remove-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Run" -Name "com.squirrel.Teams.Teams" -ErrorAction SilentlyContinue
+
+# Modify Teams JSON settings to prevent auto-start
+$TeamsSettings = "$env:APPDATA\Microsoft\Teams\desktop-config.json"
+if (Test-Path $TeamsSettings) {
+    (Get-Content $TeamsSettings) -replace '"openAtLogin":true', '"openAtLogin":false' | Set-Content $TeamsSettings
+}
+
+# Disable OneDrive Scheduled Tasks (Optional)
+Get-ScheduledTask -TaskName "OneDrive Standalone Update Task-S-1-5-21*" | Disable-ScheduledTask
+
 # Restart Explorer to Apply Changes
 Stop-Process -Name explorer -Force
 Start-Process explorer
