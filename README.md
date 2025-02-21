@@ -7,7 +7,7 @@
 git clone https://github.com/sproutmation/windows-setup.git "$env:USERPROFILE\windows-setup"
 Set-Location "$env:USERPROFILE\windows-setup"
 Set-ExecutionPolicy Bypass -Scope Process -Force
-powershell.exe -File .\setup-windows-settings.ps1
+powershell.exe -File .\setup_windows_settings.ps1
 
 regedit.exe /s .\start_settings_registry.reg
 ```
@@ -25,9 +25,16 @@ $env:Path += ";$gitPath"
 git clone https://github.com/sproutmation/windows-setup.git "$env:USERPROFILE\windows-setup"
 Set-Location "$env:USERPROFILE\windows-setup" 
 Set-ExecutionPolicy Bypass -Scope Process -Force
-powershell.exe -File .\setup-windows-settings.ps1
+powershell.exe -File .\setup_windows_settings.ps1
 
 regedit.exe /s .\start_settings_registry.reg
+```
+## Install UART driver
+
+```powershell
+Set-Location "$env:USERPROFILE\windows-setup" 
+Set-ExecutionPolicy Bypass -Scope Process -Force
+powershell.exe -File .\setup_uart_driver.ps1
 ```
 
 ## List of Windows Settings to be configured
