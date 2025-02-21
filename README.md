@@ -29,3 +29,6 @@ powershell.exe -File .\setup-windows-settings.ps1
 
 regedit.exe /s .\start_settings_registry.reg
 ```
+
+## List of Windows Settings to be configured
+[Windows Setup](windows_setup.md)
