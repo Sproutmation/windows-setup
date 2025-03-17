@@ -22,6 +22,13 @@
   - [ ] Pressing the power button will make my device sleep = `shutdown`
 - Privacy & security > Search permissions:
   - [ ] Uncheck all the search permissions 
+- System > Notifications > Set priority notifications:
+  - [ ] Uncheck all the priority notifications
+  - [ ] Remove all the apps from the priority list
+
+## Stop Windows Update
+- Windows Update > Advanced options > Pause updates
+  - [ ] Pause 
 
 ## Start Window
 - Open Start Window:
@@ -35,8 +42,7 @@
 - [ ] Add app into Startup apps
 
 ## Desktop
-- [ ] Add app shortcut to desktop
+- [ ] Add app shortcut to desktop, run `shell:startup` to open the startup folder and add the shortcut
 
-## BIOS
-- [ ] Set to automatically turn on the machine when power on
-
+## Set to automatically turn on the machine when power on
+- [ ] Go to BIOS > Chipset > PCH-IO Configuration > State After G3, set to `S0 State` 
