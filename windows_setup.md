@@ -31,6 +31,12 @@
 - Windows Security > Virus & Threat Protection settings > Exclusions > Add or remove exclusions
   - [ ] add Downloads folder to the exclusion list 
 
+## Auto Startup App
+- [ ] Add app into Startup apps
+
+## Desktop
+- [ ] Add app shortcut to desktop
+
 ## BIOS
 - [ ] Set to automatically turn on the machine when power on
 
